@@ -1,37 +1,49 @@
- let nome = document.querySelector("#nome")
- let email = document.querySelector("#email")
- let confirmarEmail = document.querySelector("#confirmar email")
- let sexo = document.querySelector(".sexo")
- let acessar = document.querySelector("button")
- let cadastro = document.querySelector("div")
- let texto = document.querySelector("h2")
- let section = document.querySelector("section")
- let reset = document.querySelectorAll(".reset")
+let nome = document.querySelector("#Nome");
+let email = document.querySelector("#Email");
+let confirme = document.querySelector("#Confirme");
+let senha = document.querySelector("#Senha");
+let genero = document.querySelector("#Sexo");
+let h2 = document.querySelector("h2");
+let botao = document.querySelector("button");
+let a = document.querySelector("a");
 
-if(localStorage.email){
-    cadastro.style.display = "none";
-    texto.innerHTML = "seja bem vindo";
-}
+let div = document.querySelector("div");
+let section = document.querySelector("section");
 
-else{
-    cadastro.style.display ="block";
-    section.style.display ="none";
-    texto.innerHTML ="confirmação de email incorreta"
-}
 
-function cadastrar(){
-    localStorage.setItem("email", email.value);
-    if(localStorage.email){
-        cadastro.style.display = "none";
-        section.style.display="block"
-        texto.innerHTML=`Seja bem vindo ${localStorage.email}`;
+if(localStorage.nome){
+    h2.innerHTML = `SEJA BEM VINDO ${localStorage.nome}`;
+    a.innerHTML = `NÂO È O ${localStorage.nome}`;
+    div.style.display = `none`;
+    section.style.display = `initial`;
+    
+} else {
+    function acessar(){
+        
+        localStorage.setItem("nome", nome.value);
+        localStorage.setItem("email", email.value);
+        localStorage.setItem("senha", senha.value);
+        localStorage.setItem("genero", genero.value);
+        
+        
+        div.style.display = "initial";
+        
+        if(email.value == confirme.value){
+            h2.innerHTML = `SEJA BEM VINDO ${localStorage.nome}`;
+            a.innerHTML = `NÂO È O ${localStorage.nome}`;
+            div.style.display = `none`;
+            section.style.display = `initial`;
+        } else {
+            alert("Email nao corresponde");
+        }
     }
 }
 
-function limparStorage(){
-    localStorage.clear();
+
+function reset() {
+    localStorage.clear("nome");
 }
 
-reset[0].onclick = limparStorage;
-reset[1].onclick = limparStorage;
-acessar.onclick = cadastrar;
+botao.onclick = acessar;
+
+a.onclick = reset;

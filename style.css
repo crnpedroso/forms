@@ -1,4 +1,31 @@
 body{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    margin-top: 50px;
     
+
+
+}
+ 
+div{ display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    margin: 10px ;
+
+}
+input{
+    margin-bottom: 10px;
+
+    
+}
+h1{
+    color: red;
+}
+button{
+    margin-top: 20px;
 }
